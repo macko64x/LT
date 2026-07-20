@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lost Trail Lodge — Guest Guide</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#1f4d3a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Guest-guide-only helpers (kept off the shared sheet on purpose) */
+    .guide-wrap{max-width:760px;margin:0 auto;padding:0 20px}
+    .guide-head{background:linear-gradient(150deg,#2e6b4f,#1f4d3a 60%,#14211b);color:#fff;padding:78px 0 30px;text-align:center}
+    .guide-head h1{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,6vw,2.8rem);margin:.1em 0 .2em}
+    .guide-head p{color:#e7efe9;margin:0 auto;max-width:44ch}
+    .sos{position:sticky;top:0;z-index:20;background:#7a1f1f;color:#fff;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:center;padding:10px 16px;font-size:.95rem;text-align:center}
+    .sos a{color:#fff;font-weight:700;text-decoration:underline;white-space:nowrap}
+    .qnav{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 4px}
+    .qnav a{font-size:.82rem;text-decoration:none;color:var(--pine-2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:var(--paper)}
+    .qnav a:hover{border-color:var(--pine-2)}
+    .gsec{padding:26px 0;border-bottom:1px solid var(--line)}
+    .gsec h2{font-family:var(--serif);font-weight:500;font-size:1.45rem;margin:0 0 .1em;scroll-margin-top:64px}
+    .gsec .eyebrow{margin-bottom:.5em}
+    .gsec p,.gsec li{color:var(--ink-2);font-size:.98rem;line-height:1.55}
+    .gsec ul{margin:.5em 0 0;padding-left:1.2em}
+    .gsec li{margin:.3em 0}
+    .fill{background:#fff3cd;border:1px dashed #c98a2b;border-radius:5px;padding:1px 7px;color:#7a4f12;font-size:.92em;font-weight:500}
+    .safe{background:#eef5f0;border-left:4px solid var(--pine-2);border-radius:8px;padding:12px 15px;margin:.9em 0;font-size:.93rem;color:#26473a}
+    .checklist{list-style:none;padding-left:0}
+    .checklist li{padding-left:1.7em;position:relative}
+    .checklist li::before{content:"☐";position:absolute;left:0;color:var(--pine-2);font-size:1.1em}
+    .gfoot{text-align:center;padding:28px 0 60px;color:var(--muted);font-size:.85rem}
+    .gfoot a{color:var(--pine-2)}
+  </style>
+</head>
+<body>
+  <div class="sos" role="note">
+    <span>🚨 Emergency: call <a href="tel:911">911</a></span>
+    <span>Lodge contact: <span class="fill">add host phone</span></span>
+    <span><a href="#emergency">More info ↓</a></span>
+  </div>
+
+  <header class="guide-head" id="top">
+    <div class="guide-wrap">
+      <p class="eyebrow eyebrow--light">Coldstream Canyon · Truckee, CA</p>
+      <h1>Lost Trail Lodge</h1>
+      <p>Welcome. Everything you need for a great off-grid stay is here — bookmark this page, it works on your phone.</p>
+    </div>
+  </header>
+
+  <main class="guide-wrap">
+    <nav class="qnav" aria-label="Jump to a section">
+      <a href="#arrival">Getting in</a>
+      <a href="#wifi">Wifi</a>
+      <a href="#heat">Heat &amp; stove</a>
+      <a href="#water">Water</a>
+      <a href="#power">Power</a>
+      <a href="#kitchen">Kitchen</a>
+      <a href="#bath">Bathrooms</a>
+      <a href="#sauna">Sauna</a>
+      <a href="#bears">Bears</a>
+      <a href="#trash">Trash</a>
+      <a href="#outside">Outside</a>
+      <a href="#checkout">Check-out</a>
+      <a href="#emergency">Emergency</a>
+    </nav>
+
+    <section class="gsec" id="arrival">
+      <p class="eyebrow">Start here</p>
+      <h2>Getting in &amp; settled</h2>
+      <p>You made it — welcome to the canyon. A few first steps:</p>
+      <ul>
+        <li><strong>Parking &amp; access:</strong> <span class="fill">add where to park + the walk/approach to the door</span></li>
+        <li><strong>Getting inside:</strong> <span class="fill">add lock/keypad location + entry code (or "your booking confirmation has the code")</span></li>
+        <li><strong>First things:</strong> lights are on the solar system (see Power below). If it's cold, get the wood stove going early — the lodge holds heat well once it's warm.</li>
+        <li><strong>Bedrooms:</strong> four private rooms, beds made up with fresh linens. <span class="fill">add any room-assignment notes</span></li>
+      </ul>
+      <div class="safe">Deep breath — you're genuinely off-grid here. Cell service is spotty, but there's Starlink wifi (below). Take a minute to read the wood stove, water and power sections before you settle in.</div>
+    </section>
+
+    <section class="gsec" id="wifi">
+      <p class="eyebrow">Stay connected</p>
+      <h2>Starlink wifi</h2>
+      <ul>
+        <li><strong>Network:</strong> <span class="fill">add network name</span> &nbsp;·&nbsp; <strong>Password:</strong> <span class="fill">add password</span></li>
+        <li>It's satellite internet — fast enough for calls and streaming, but it can pause in heavy snow or storms. If it drops, give it a minute to reconnect.</li>
+        <li>If it's still down: <span class="fill">add how to restart the Starlink (where the router/plug is), or who to text</span></li>
+      </ul>
+    </section>
+
+    <section class="gsec" id="heat">
+      <p class="eyebrow">Warmth</p>
+      <h2>Heat &amp; the wood stove</h2>
+      <p>The wood stove is the heart of the lodge. Get it going early and keep it fed.</p>
+      <ul>
+        <li><strong>Firewood:</strong> <span class="fill">add where wood, kindling &amp; fire-starter are kept</span></li>
+        <li><strong>Lighting it:</strong> <span class="fill">add the exact steps for this stove — damper/air settings, how to load, how to get a clean burn</span></li>
+        <li><strong>Other heat:</strong> <span class="fill">add any backup heat (propane/diesel heater, thermostats) and how to use it</span></li>
+      </ul>
+      <div class="safe"><strong>Fire safety:</strong> keep the area around the stove clear, never leave a fire unattended with the door open, use the screen/gloves provided, and make sure the carbon-monoxide detector is working — if it ever alarms, get everyone outside and call 911. Let ashes cool fully before disposing of them in the metal ash can, never in the trash.</div>
+    </section>
+
+    <section class="gsec" id="water">
+      <p class="eyebrow">Off-grid living</p>
+      <h2>Water</h2>
+      <ul>
+        <li><strong>Where it comes from:</strong> <span class="fill">add water source + whether it's filtered/potable, or "bring drinking water / use the filter provided"</span></li>
+        <li><strong>Please conserve</strong> — it's a finite off-grid supply. Short showers, taps off while you scrub, and let us know if anything's dripping.</li>
+        <li><strong>If there's no water or a pump issue:</strong> <span class="fill">add what to check (breaker/pump switch) + who to text</span></li>
+        <li><strong>Winter:</strong> <span class="fill">add any freeze precautions (leave a tap dripping, keep cabinets open, etc.)</span></li>
+      </ul>
+    </section>
+
+    <section class="gsec" id="power">
+      <p class="eyebrow">Off-grid living</p>
+      <h2>Power</h2>
+      <p>The lodge runs on solar with battery storage and a backup generator.</p>
+      <ul>
+        <li><strong>Everyday use:</strong> lights, charging and normal appliances are fine off the batteries. Turn lights off when you leave a room — it all comes from the sun.</li>
+        <li><strong>Go easy on big draws:</strong> <span class="fill">add anything to avoid running at once (space heaters, hair dryers, etc.) and any inverter limits</span></li>
+        <li><strong>The generator:</strong> <span class="fill">add when/why to run it + exact start/stop steps, fuel location, and safety (never run it enclosed)</span></li>
+        <li><strong>If the power's low or out:</strong> <span class="fill">add what to check (battery monitor, breakers) + who to text</span></li>
+      </ul>
+    </section>
+
+    <section class="gsec" id="kitchen">
+      <p class="eyebrow">The kitchen</p>
+      <h2>Cooking &amp; kitchen</h2>
+      <ul>
+        <li><strong>Appliances:</strong> <span class="fill">add stove/oven fuel (propane?), fridge, coffee, and anything with a quirk</span></li>
+        <li>Cookware, dishes and basics are stocked. <span class="fill">add what's provided vs. bring-your-own (oils, spices, coffee, paper goods)</span></li>
+        <li><strong>Dishwashing:</strong> please wash up as you go and use water sparingly. <span class="fill">add greywater notes + which soaps to use</span></li>
+        <li>Prefer not to cook? We can arrange a <strong>private chef</strong> — just ask before your trip.</li>
+      </ul>
+    </section>
+
+    <section class="gsec" id="bath">
+      <p class="eyebrow">Bathrooms</p>
+      <h2>Bathrooms &amp; showers</h2>
+      <ul>
+        <li>Full bathrooms with hot showers — off-grid, but you're never roughing it. Keep showers short to protect the water and power supply.</li>
+        <li><strong>Septic:</strong> only flush the three P's (pee, paper, poop). No wipes, no products — even "flushable" ones. <span class="fill">confirm septic notes</span></li>
+        <li><strong>Toiletries &amp; towels:</strong> <span class="fill">add what's provided</span></li>
+      </ul>
+    </section>
+
+    <section class="gsec" id="sauna">
+      <p class="eyebrow">On the property</p>
+      <h2>Riverside sauna</h2>
+      <p>A wood-fired sauna by the creek is <strong>coming soon</strong>. <span class="fill">When it's ready: add how to fire it safely, timing, etiquette, and the honor-system donation QR / member code.</span></p>
+    </section>
+
+    <section class="gsec" id="bears">
+      <p class="eyebrow">Wildlife</p>
+      <h2>Bear country</h2>
+      <p>This is black-bear habitat. Bears are after food, not you — keep food secured and everyone stays happy.</p>
+      <ul>
+        <li>Keep all food, coolers, trash and scented items <strong>inside</strong> and put away — never in cars or on the deck.</li>
+        <li><strong>Bear boxes / storage:</strong> <span class="fill">add where they are and what to use them for</span></li>
+        <li>Keep doors and low windows closed when you're out or asleep. Don't leave food out overnight.</li>
+        <li><strong>If you see a bear:</strong> give it space, don't run, make yourself big and loud from a distance, and never get between a bear and its cubs or its food. Report any problem bear to us and, if there's an immediate safety threat, call 911.</li>
+      </ul>
+    </section>
+
+    <section class="gsec" id="trash">
+      <p class="eyebrow">Leave no trace</p>
+      <h2>Trash &amp; recycling</h2>
+      <ul>
+        <li><strong>Trash &amp; recycling go:</strong> <span class="fill">add dumpster location + keyed access, or "pack it out"</span></li>
+        <li>Because of bears, never leave bags outside unsecured — store trash inside until you take it to the bear-proof bin.</li>
+        <li>Leave the lodge and canyon better than you found it. Pack out anything that doesn't belong.</li>
+      </ul>
+    </section>
+
+    <section class="gsec" id="outside">
+      <p class="eyebrow">Out the door</p>
+      <h2>Exploring the area</h2>
+      <p>Trailheads, swimming holes, town, food and day trips are all in our full area guide:</p>
+      <ul>
+        <li><a href="lost-trail-area-guide.html"><strong>Truckee &amp; Coldstream Canyon area guide →</strong></a></li>
+        <li><strong>Trailheads from the door:</strong> <span class="fill">add the 2–3 closest / favorite trailheads</span></li>
+        <li>Check current fire, trail and (winter) avalanche conditions before you head out — see Emergency below for resources.</li>
+      </ul>
+    </section>
+
+    <section class="gsec" id="checkout">
+      <p class="eyebrow">Before you go</p>
+      <h2>Check-out</h2>
+      <p><strong>Check-out time:</strong> <span class="fill">add time</span>. No need to deep-clean — just leave it as you found it. Quick list:</p>
+      <ul class="checklist">
+        <li>Wash, dry and put away dishes; wipe down surfaces</li>
+        <li>Bag trash &amp; recycling and take it to the bear-proof bin <span class="fill">/ or pack it out</span></li>
+        <li>Strip beds? <span class="fill">confirm: leave used towels/linens where, or leave beds as-is</span></li>
+        <li>Wood stove fully out and cold; damper <span class="fill">set as instructed</span></li>
+        <li>All taps off; nothing dripping</li>
+        <li>Windows shut, doors locked; lights off / <span class="fill">power set as instructed</span></li>
+        <li>Thermostat / heaters <span class="fill">set to…</span></li>
+        <li>Lock up and return the code/key <span class="fill">as instructed</span></li>
+      </ul>
+      <p>Something break or run low during your stay? Tell us — it helps the next guests, and honest wear is no problem.</p>
+    </section>
+
+    <section class="gsec" id="emergency">
+      <p class="eyebrow">Keep this handy</p>
+      <h2>Emergency &amp; contacts</h2>
+      <ul>
+        <li><strong>Life-threatening emergency:</strong> call <a href="tel:911">911</a>. Our address for first responders: <span class="fill">add exact address / coordinates + gate info</span></li>
+        <li><strong>Lodge / host contact:</strong> <span class="fill">add name + phone (make it a tap-to-call link)</span></li>
+        <li><strong>Nearest hospital:</strong> Tahoe Forest Hospital, 10121 Pine Ave, Truckee — 24-hr ER.</li>
+        <li><strong>Non-emergency &amp; wildfire info:</strong> <span class="fill">add local sheriff non-emergency + any fire/evacuation resource</span></li>
+        <li><strong>Roads:</strong> Caltrans QuickMap / call 511 for chain controls and closures.</li>
+        <li><strong>Winter avalanche:</strong> Sierra Avalanche Center (sierraavalanchecenter.org) — check daily before backcountry travel.</li>
+        <li><strong>Power/water/heat problem that isn't an emergency:</strong> text the lodge contact above — we'll walk you through it.</li>
+      </ul>
+    </section>
+
+    <p class="gfoot">Lost Trail Lodge · operated by Stok Investment Group · <a href="/">lodge page</a> · <a href="#top">back to top</a><br />Thanks for treating the canyon with care. 🌲</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

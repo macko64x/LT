@@ -1,0 +1,3 @@
+# Lost Trail Lodge — deploys to lost-trail-lodge.com. Static, no build: publish the repo root.
+[build]
+  publish = "."
