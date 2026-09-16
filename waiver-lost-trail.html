@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lost Trail Lodge — Sign Your Agreement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Serif+4:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#F6F4EF; --card:#FFFFFF; --ink:#1D211C; --muted:#5E655C; --line:#E2DDD3;
+  --accent:#2C4A3E; --accent2:#8A5A2B; --ok:#2f7a53; --err:#b23b2e;
+  --agree-bg:#FBFAF6;
+}
+:root:not([data-theme="light"]){ }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#14161A; --card:#1B1E22; --ink:#ECEAE3; --muted:#A6ABA2; --line:#31353B;
+    --accent:#8FBFA6; --accent2:#D6A56A; --agree-bg:#181B1F; --ok:#7fc79f; --err:#e2887c;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14161A; --card:#1B1E22; --ink:#ECEAE3; --muted:#A6ABA2; --line:#31353B;
+  --accent:#8FBFA6; --accent2:#D6A56A; --agree-bg:#181B1F; --ok:#7fc79f; --err:#e2887c;
+}
+*{box-sizing:border-box}
+body{background:var(--paper); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.5; margin:0;}
+.wrap{max-width:720px; margin:0 auto; padding-block:28px; padding-left:18px; padding-right:18px;}
+.kick{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent2); font-weight:700; margin:0;}
+h1{font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:clamp(30px,7vw,44px); line-height:1.05;
+  margin:.15em 0 .1em; text-wrap:balance;}
+.loc{color:var(--muted); font-size:15px; margin:0 0 4px;}
+.doctitle{font-family:"Fraunces",Georgia,serif; font-size:17px; color:var(--accent); margin:14px 0 0; font-weight:600;}
+.intro{color:var(--muted); font-size:14.5px; margin:6px 0 0;}
+.agreement{background:var(--agree-bg); border:1px solid var(--line); border-radius:12px;
+  padding:18px 18px 6px; margin:18px 0; font-family:"Source Serif 4",Georgia,serif; font-size:15px;}
+.agreement h3.cl{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:13.5px; letter-spacing:.02em; text-transform:uppercase; color:var(--accent);
+  margin:16px 0 4px; font-weight:700;}
+.agreement p{margin:8px 0;}
+.card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; margin:16px 0;}
+.card h2{font-family:"Fraunces",Georgia,serif; font-size:20px; margin:0 0 12px; font-weight:600;}
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:12px 14px;}
+.field{display:flex; flex-direction:column; gap:5px;}
+.field.full{grid-column:1 / -1;}
+label{font-size:12.5px; font-weight:600; color:var(--muted); letter-spacing:.01em;}
+label .req{color:var(--err);}
+input,textarea{font:inherit; font-size:16px; color:var(--ink); background:var(--card);
+  border:1px solid var(--line); border-radius:8px; padding:11px 12px; width:100%;}
+input:focus,textarea:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent);}
+input[readonly]{background:var(--agree-bg); color:var(--muted);}
+.acks{display:flex; flex-direction:column; gap:12px; margin-top:4px;}
+.ack{display:flex; gap:11px; align-items:flex-start; font-size:14.5px;}
+.ack input{width:22px; height:22px; flex:0 0 auto; margin-top:1px; accent-color:var(--accent);}
+.sigwrap{margin-top:6px;}
+.sigpad{border:1.5px dashed var(--line); border-radius:10px; background:var(--card); touch-action:none; width:100%; height:180px; display:block;}
+.sigrow{display:flex; justify-content:space-between; align-items:center; margin-top:6px;}
+.hint{font-size:12.5px; color:var(--muted);}
+.link{background:none; border:none; color:var(--accent); font:inherit; font-size:13px; cursor:pointer; text-decoration:underline; padding:0;}
+.btn{background:var(--accent); color:#fff; border:none; border-radius:10px; padding:15px 20px;
+  font:inherit; font-size:17px; font-weight:650; cursor:pointer; width:100%; margin-top:4px;}
+.btn:disabled{opacity:.55; cursor:not-allowed;}
+.btn.secondary{background:transparent; color:var(--accent); border:1.5px solid var(--accent);}
+.err{color:var(--err); font-size:13.5px; margin-top:8px; min-height:1em;}
+.note{background:#FDF3D8; border:1px solid #E5C77A; color:#5b4a1b; border-radius:10px; padding:11px 13px; font-size:13px; margin:14px 0;}
+:root:not([data-theme="light"]) .note, :root[data-theme="dark"] .note{background:#332b12; border-color:#6b5a24; color:#e7d69f;}
+.done{text-align:center; padding:26px 10px;}
+.done .big{font-family:"Fraunces",serif; font-size:26px; color:var(--accent); margin:8px 0;}
+.foot{color:var(--muted); font-size:12px; margin-top:22px; border-top:1px solid var(--line); padding-top:12px;}
+@media (max-width:560px){ .grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <p class="kick">SIG Lodges · Please read &amp; sign</p>
+  <h1>Lost Trail Lodge</h1>
+  <p class="loc">Coldstream Canyon · Truckee, California</p>
+  <p class="doctitle">Rental Agreement, Assumption of Risk &amp; Liability Waiver</p>
+  <p class="intro">Everyone in your party is covered by this agreement. Please read it in full, complete your details, check each box, and sign at the bottom. You can download a copy of your signed agreement at the end.</p>
+  
+
+  <div class="agreement" id="agreementText">
+<p>This Rental Agreement, Assumption of Risk, and Liability, Indemnity and Media Waiver and Release Agreement (this “Agreement”) is entered into as of ______________, 20____, and is executed by the guest who books the reservation (“Guest,” on behalf of Guest and all members of Guest’s party). The property is Lost Trail Lodge, Coldstream Canyon, 8600 Cold Stream Rd, Truckee, CA (the “Lodge”), owned by Lost Trail Lodge, LLC (“Owner”) and offered and operated by stok Investment Group, LLC (together with its affiliates, successors and assigns, collectively, “Indemnitee”). In consideration for being permitted access to and use of the facilities and amenities associated with the Lodge, each person who uses the Lodge (each a “User”), on behalf of such User and such User’s heirs, executors, administrators, successors and assigns, agrees, covenants and contracts as follows.</p>
+<p><strong>Order of precedence.</strong> Sections 1–5 and 11 set out the rental and operational terms of the booking. Sections 6–10, 12 and 13 are the liability, assumption-of-risk, release, indemnification, insurance and media provisions. In the event of any conflict between the operational terms and the liability/release provisions, the liability/release provisions control.</p>
+<h3 class="cl">1. Property &amp; Occupancy</h3>
+<p>Guest rents the entire Lost Trail Lodge, Coldstream Canyon, 8600 Cold Stream Rd, Truckee, CA. Maximum occupancy up to 12 guests overnight (up to 18 for permitted day use); only registered guests may stay overnight. Events or day-use beyond occupancy require prior written approval.</p>
+<h3 class="cl">2. Payment</h3>
+<p>A deposit is due at booking and the balance is due before arrival, per the rates, fees, deposit, and schedule shown at the time of booking.</p>
+<h3 class="cl">3. Cancellation</h3>
+<p>Cancellation terms are as shown at the time of booking.</p>
+<h3 class="cl">4. Conduct &amp; House Rules</h3>
+<p>Guest agrees to the house rules provided with the booking. Owner may terminate the stay without refund for serious violations, exceeding occupancy, or unsafe conduct.</p>
+<h3 class="cl">5. Off-Grid Systems</h3>
+<p>Water, solar/generator power, and internet may vary with weather and demand; Owner is not liable for interruptions but will help resolve issues.</p>
+<h3 class="cl">6. Acknowledgement of Risks</h3>
+<p>The Lodge is off-grid and in a remote mountain, bear-country setting, with a rough-road / over-snow approach and, seasonally, avalanche and wildfire risk. Guest and Guest’s entire party accept these risks.</p>
+<p>The undersigned User hereby acknowledges and agrees that use of the Lodge has inherent risks and hazards. These risks and hazards include, but are not limited to, driveways, stairs, doorways, fences, trails, rough and unpaved or over-snow roads, avalanches, snowbanks, gates, parking areas, lightning, wind, rain, snow, mixed precipitation, wildfire and smoke, insects, wild animals (including bears), extreme temperatures, rocks, trees, fire and wood-burning appliances, or rivers and swift-moving water. User is assuming such risks and hazards based on User’s desire to use the facilities and amenities to engage in activities at the Lodge. User acknowledges that User may be subject to injury from such activities and use of the facilities and amenities, and that no form of preplanning can remove all of the danger to which User may be exposed in doing so. User further represents and warrants to Indemnitee that User has full knowledge of the nature and extent of all risks associated with engaging in activities at the Lodge and the use of equipment, including but not limited to: skiing, snowboarding, snowshoeing, camping, cooking, cross-country skiing, snowmobiling, dogsledding, hiking, fishing, backpacking, running, mountain biking, road cycling, rock climbing, rappelling, hunting, rafting, packrafting, kayaking, canoeing, swimming, horseback riding, use of a wood-fired sauna, as well as any other activity that User may engage in while visiting the Lodge.</p>
+<h3 class="cl">7. Releases, Indemnification and Covenant Not to Sue</h3>
+<p>User, for him/herself, his/her personal representatives, heirs, and next of kin HEREBY FULLY AND FOREVER RELEASES, DISCHARGES, AND COVENANTS AND PROMISES TO HOLD HARMLESS AND NOT TO SUE Indemnitee, its officers, directors, employees, agents, partners, managers, representatives, insurers, contractors, volunteers, and all other persons or entities affiliated therewith, as well as the owner of any Lodge property (collectively, “Indemnified Parties”), from any and all liability, claims, losses, demands, actions, or rights of action, which are related to, arise out of or are in any way connected with User’s presence at the Lodge or participation in any Lodge activity, including, but not limited to any and all claims asserting negligence by Indemnified Parties, or any other persons or entities present at the Lodge, for any and all injury, death, stress, disability, illness, disease, or damage to User or User’s property. User further AGREES, PROMISES AND COVENANTS TO HOLD HARMLESS AND TO INDEMNIFY Indemnified Parties, and all other persons or entities present at the Lodge against all injury or damage that User may negligently or intentionally cause to spectators or other third parties in the course of User’s participation in any Lodge activity or use of Lodge facilities or amenities. User further agrees, promises and covenants not to use, assert or otherwise maintain any claim against Indemnified Parties, for any injury, death, illness or disease, or damage to User or User’s property, arising from or connected to User’s participation in any activity or from any claims asserted against User by spectators or other third parties. In signing this document, User acknowledges and agrees that if anyone is injured or dies, or property is damaged while User is on or utilizing Lodge facilities or amenities, User will have no rights to make any claim or file a lawsuit against Indemnified Parties even if Indemnified Parties, or any of them, negligently caused the injury or property damage. Notwithstanding the foregoing, nothing in this Agreement releases, waives, or limits liability for gross negligence, recklessness, or willful or intentional misconduct, or any other liability that may not be released or waived as a matter of California law (see California Civil Code § 1668).</p>
+<h3 class="cl">8. Media Release</h3>
+<p>User hereby assigns to Indemnitee and its affiliates, successors, assigns and licensees a perpetual, irrevocable, worldwide, transferable, sublicensable, royalty-free, fully paid-up, nonexclusive, unlimited license to record, photograph, use, copy, reproduce, display, publish, distribute, modify and edit User’s name, image, appearance, likeness, voice, photograph and other personal characteristics (collectively, “User’s Image”) in connection with User being a subject of or included in photographs, films, videotapes, recording or any media whatsoever now known or in the future made or obtained by Indemnitee, its agents or representatives in connection with User’s participation in Indemnitee activities or use of Lodge facilities or amenities (collectively, “Content”). User authorizes Indemnitee, its agents, affiliates, licensees, successors or assigns, to cause the same to be exhibited in any manner, media, channel or format now known or hereafter developed, and for any legitimate purpose, including without limitation, in advertisements and other marketing promotions, on the websites associated with Indemnitee, and on social media accounts owned or controlled by or on behalf of Indemnitee. User acknowledges that said Content is and shall remain the sole property of Indemnitee, in which they reserve no rights. User waives any rights that User may have to inspect and approve the Content or User’s Image, and Indemnitee shall not have any liability by virtue of any retouching, blurring, distortion, alteration, optical illusion or use in composite form, whether by traditional photographic techniques or digitally, whether intentional or otherwise, that may occur or be produced in the taking, reproduction and/or display of User’s Image.</p>
+<h3 class="cl">9. Acknowledgement of Effect of This Release Agreement</h3>
+<p>User understands and acknowledges that by signing this document User has given up certain legal rights and/or possible claims which User might otherwise be able to assert or maintain against Indemnified Parties, and other affiliated persons or entities, including but not limited to rights arising from or claims related to the acts or omissions, fault or negligence of Indemnified Parties or any other affiliated persons or entities. User further understands and acknowledges that by initialing and/or signing this document, User has assumed responsibility and LEGAL LIABILITY for any claims or other legal demands, including attorney’s fees and costs, which may be asserted by spectators or other third parties against User as a result of User’s participation in any Lodge activity or the use of facilities or amenities owned or operated by Indemnitee and User has received any and all information that is deemed necessary or important in making an informed choice regarding its participation in any activity at the Lodge or the use of facilities or amenities owned or operated by Indemnitee. User understands that this document is intended to be as broad and inclusive as is permitted by the laws of the State of California and that the balance of this document shall continue in full force and effect if any portion of this document is held invalid.</p>
+<h3 class="cl">10. Participant Insurance Benefits and Representation of Physical Condition</h3>
+<p>User understands and acknowledges that no medical benefits or insurance will be provided to User for injuries occurring while User is at the Lodge. User represents that either (a) User has sufficient health, accident, and personal liability insurance to cover bodily injury, property damage, or any consequences resulting from User’s participation in Lodge activities or use of any facilities or amenities owned or operated by Indemnitee and/or (b) User is capable of personally paying for any and all expenses or liability resulting from such participation or use. User further acknowledges that they are in good physical and mental health, and are not suffering from any condition, disease or disablement, which would or could potentially affect participation in activities at the Lodge or use of facilities or amenities owned or operated by Indemnitee.</p>
+<h3 class="cl">11. Damage &amp; Liability</h3>
+<p>Guest is responsible for any damage beyond normal wear and for their party’s conduct. To the extent permitted by law, Owner is not liable for injury, loss, or damage; Guest agrees to indemnify Owner and the Indemnified Parties as provided in this Agreement, and will promptly report any damage or issues.</p>
+<h3 class="cl">12. Consideration</h3>
+<p>As consideration for User’s acceptance of this document, and other consideration the receipt and sufficiency of which is hereby acknowledged, Indemnitee will permit User to participate in Lodge activities and use the facilities or amenities owned or operated by Indemnitee, subject to User’s compliance with all applicable Rules and Regulations. Indemnitee retains the right to deny entrance to its facilities or participation in its activities, to anyone in its sole discretion.</p>
+<p>If User is signing for a minor child or as a guardian, User represents that they are the parent or legal guardian of the below-named minor participant and, in addition to executing the foregoing on behalf of the participant, personally and on behalf of the participant hereby waives and releases any prospective claim of the participant against the Indemnified Parties for negligence in connection with the above-described activities, to the fullest extent permitted by California law.</p>
+<h3 class="cl">13. Governing Law, Venue &amp; Miscellaneous</h3>
+<p>User understands that this document constitutes the entire agreement between the undersigned User, Owner and Indemnitee, and their agents or employees (together with the house rules, check-out instructions, and booking terms provided with the reservation), and that it cannot be modified or changed in any way by the representations or statements of Owner, Indemnitee, their agents, workers, managers or employees, or by User, except in writing signed by User and Indemnitee. User’s and, where applicable, their Parents’/Guardians’ signatures below indicate that they have carefully read this entire document in full, understand it completely, and agree to be bound by its terms. This Agreement is a California contract and User consents to the jurisdiction and venue for any action relating to this Agreement in Nevada County, California, regardless of User’s residence or domicile.</p>
+<p>This Agreement shall be construed broadly to provide a release, waiver, and indemnity to the maximum extent permissible under applicable California law, and if any portion thereof is held invalid, it is agreed that the balance shall, notwithstanding, continue in full legal force and effect. I UNDERSTAND THIS IS A LEGAL DOCUMENT AND THAT BY SIGNING IT I AM GIVING UP MY RIGHT TO SUE OR OTHERWISE MAKE A CLAIM AGAINST THE INDEMNIFIED PARTIES FOR ORDINARY NEGLIGENCE. THE UNDERSIGNED USER HAS READ AND VOLUNTARILY SIGNS THIS AGREEMENT. THIS AGREEMENT MAY BE ENTERED INTO BY SIGNATURE BELOW OR BY USER CLICKING THE “I ACCEPT” OR SIMILAR BUTTON PURSUANT TO AN ELECTRONIC APPLICATION.</p>
+  </div>
+
+  <form name="lost-trail-waiver" data-netlify="true" netlify-honeypot="bot-field" hidden><input type="hidden" name="form-name" value="lost-trail-waiver"><p hidden><label>Don’t fill this out: <input name="bot-field"></label></p><input type="text" name="guest_name"><input type="text" name="email"><input type="text" name="phone"><input type="text" name="reservation_id"><input type="text" name="check_in"><input type="text" name="check_out"><input type="text" name="party_size"><input type="text" name="emergency_name"><input type="text" name="emergency_phone"><input type="text" name="minors"><input type="text" name="typed_name"><input type="text" name="sign_date"><input type="text" name="signature_image"><input type="text" name="agreement_version"><input type="text" name="property"><input type="text" name="signed_at"></form>
+  <form id="waiverForm" novalidate>
+    <div id="formArea">
+      
+<div class="card">
+  <h2>Your booking</h2>
+  <div class="grid">
+    <div class="field"><label for="guest">Full legal name <span class="req">*</span></label>
+      <input id="guest" name="guest_name" autocomplete="name" required></div>
+    <div class="field"><label for="email">Email <span class="req">*</span></label>
+      <input id="email" name="email" type="email" autocomplete="email" required></div>
+    <div class="field"><label for="phone">Mobile phone <span class="req">*</span></label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+    <div class="field"><label for="resid">Reservation / booking ID</label>
+      <input id="resid" name="reservation_id"></div>
+    <div class="field"><label for="checkin">Check-in date</label>
+      <input id="checkin" name="check_in" type="date"></div>
+    <div class="field"><label for="checkout">Check-out date</label>
+      <input id="checkout" name="check_out" type="date"></div>
+    <div class="field"><label for="party">Number in party</label>
+      <input id="party" name="party_size" type="number" min="1" inputmode="numeric"></div>
+    <div class="field"><label for="ec">Emergency contact (name)</label>
+      <input id="ec" name="emergency_name"></div>
+    <div class="field"><label for="ecp">Emergency contact (phone)</label>
+      <input id="ecp" name="emergency_phone" type="tel"></div>
+    <div class="field full"><label for="minors">Names of any minors in your party (optional)</label>
+      <input id="minors" name="minors"></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Acknowledgements</h2>
+  <div class="acks">
+<label class="ack"><input type="checkbox" class="ackbox" required> <span>I have read and understand this entire Agreement. I am at least 18 years old and I am signing on behalf of myself and everyone in my party.</span></label>
+<label class="ack"><input type="checkbox" class="ackbox" required> <span>I understand the Lodge is remote and off-grid, and I ACCEPT the inherent risks described — including the risk of injury, illness, or death.</span></label>
+<label class="ack"><input type="checkbox" class="ackbox" required> <span>I agree to the Releases, Indemnification and Covenant Not to Sue, and to the Media Release, set out above.</span></label>
+<label class="ack"><input type="checkbox" class="ackbox" required> <span>I understand this is bear country and fire-prone terrain, and that winter access crosses avalanche terrain — my party is responsible for our own safety.</span></label>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Signature</h2>
+  <p class="hint">Type your full legal name, then sign in the box with your finger or mouse.</p>
+  <div class="field" style="margin:10px 0 12px;">
+    <label for="typed">Type your full legal name <span class="req">*</span></label>
+    <input id="typed" name="typed_name" autocomplete="off" required>
+  </div>
+  <div class="sigwrap">
+    <label>Draw your signature <span class="req">*</span></label>
+    <canvas class="sigpad" id="sigpad"></canvas>
+    <div class="sigrow"><span class="hint" id="sighint">Sign above</span>
+      <button type="button" class="link" id="clearsig">Clear</button></div>
+  </div>
+  <div class="field" style="margin-top:12px; max-width:220px;">
+    <label for="sigdate">Date</label>
+    <input id="sigdate" name="sign_date" readonly>
+  </div>
+</div>
+
+      <div class="err" id="formErr" role="alert"></div>
+      <button type="submit" class="btn" id="submitBtn">Submit signed agreement</button>
+      <p class="hint" style="text-align:center;margin-top:10px;">By submitting, you agree this electronic signature is legally binding, the same as a handwritten one.</p>
+    </div>
+  </form>
+
+  <div id="doneArea" hidden>
+    <div class="done">
+      <p class="kick">Received</p>
+      <p class="big">Thank you, <span id="doneName"></span>.</p>
+      <p id="doneMsg">Your signed agreement has been received. Your access details and check-in instructions will follow before arrival.</p>
+      <button type="button" class="btn secondary" id="downloadPdf" style="max-width:320px;margin:16px auto 0;">Download your signed copy (PDF)</button>
+    </div>
+  </div>
+
+  <p class="foot">Lost Trail Lodge · operated by Stok Investment Group. Agreement version Lost Trail v1 (2026-09). Electronic signatures are captured under the U.S. ESIGN Act / UETA.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function(){
+  var CFG = {"name": "Lost Trail Lodge", "loc": "Coldstream Canyon \u00b7 Truckee, California", "version": "Lost Trail v1 (2026-09)", "form_name": "lost-trail-waiver", "mode": "live"};
+  var $ = function(s){return document.querySelector(s);};
+  // date
+  var today = new Date();
+  var iso = today.toISOString().slice(0,10);
+  $("#sigdate").value = today.toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'});
+
+  // signature pad
+  var cv = $("#sigpad"), ctx = cv.getContext("2d"), drawing=false, hasInk=false, last=null;
+  function fit(){ var r=cv.getBoundingClientRect(), d=window.devicePixelRatio||1;
+    cv.width=r.width*d; cv.height=r.height*d; ctx.scale(d,d);
+    ctx.lineWidth=2.4; ctx.lineCap="round"; ctx.lineJoin="round";
+    ctx.strokeStyle= getComputedStyle(document.body).getPropertyValue('--ink')||'#1D211C'; }
+  fit(); window.addEventListener("resize", function(){ var data=hasInk?cv.toDataURL():null; fit(); });
+  function pos(e){ var r=cv.getBoundingClientRect();
+    var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+    var y=(e.touches?e.touches[0].clientY:e.clientY)-r.top; return {x:x,y:y}; }
+  function start(e){ e.preventDefault(); drawing=true; last=pos(e); }
+  function move(e){ if(!drawing)return; e.preventDefault(); var p=pos(e);
+    ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(p.x,p.y); ctx.stroke();
+    last=p; hasInk=true; $("#sighint").textContent="Signed ✓"; }
+  function end(){ drawing=false; }
+  cv.addEventListener("mousedown",start); cv.addEventListener("mousemove",move);
+  window.addEventListener("mouseup",end);
+  cv.addEventListener("touchstart",start,{passive:false}); cv.addEventListener("touchmove",move,{passive:false});
+  cv.addEventListener("touchend",end);
+  $("#clearsig").addEventListener("click", function(){ ctx.clearRect(0,0,cv.width,cv.height); hasInk=false; $("#sighint").textContent="Sign above"; });
+
+  function collect(){
+    var d={};
+    document.querySelectorAll("#waiverForm [name]").forEach(function(el){ d[el.name]=el.value.trim(); });
+    d.agreement_version = CFG.version;
+    d.property = CFG.name;
+    d.signed_at = new Date().toISOString();
+    return d;
+  }
+  function validate(){
+    var missing=[];
+    ["guest_name","email","phone","typed_name"].forEach(function(n){
+      var el=document.querySelector("[name="+n+"]"); if(!el.value.trim()) missing.push(el); });
+    var allack=true; document.querySelectorAll(".ackbox").forEach(function(c){ if(!c.checked) allack=false; });
+    if(missing.length){ return "Please complete the required fields (marked *)."; }
+    if(!allack){ return "Please check all acknowledgement boxes to continue."; }
+    if(!hasInk){ return "Please draw your signature in the box."; }
+    return null;
+  }
+
+  function makePDF(d, sigDataURL){
+    try{
+      var jsPDF = window.jspdf.jsPDF; var doc=new jsPDF({unit:"pt",format:"letter"});
+      var M=54, W=doc.internal.pageSize.getWidth(), y=M;
+      function line(t,sz,b,color){ doc.setFont("times", b?"bold":"normal"); doc.setFontSize(sz);
+        if(color) doc.setTextColor(color[0],color[1],color[2]); else doc.setTextColor(30,33,28);
+        var lines=doc.splitTextToSize(t, W-M*2);
+        lines.forEach(function(ln){ if(y>doc.internal.pageSize.getHeight()-M){ doc.addPage(); y=M; }
+          doc.text(ln, M, y); y+=sz*1.35; }); }
+      line(CFG.name, 20, true, [46,74,58]); line(CFG.loc, 11, false); y+=6;
+      line("Signed Rental Agreement, Assumption of Risk & Liability Waiver", 12, true); y+=4;
+      line("Agreement version: "+CFG.version, 9.5, false); y+=10;
+      [["Guest",d.guest_name],["Email",d.email],["Phone",d.phone],["Reservation ID",d.reservation_id],
+       ["Stay",(d.check_in||"")+(d.check_out?" to "+d.check_out:"")],["Party size",d.party_size],
+       ["Emergency contact",(d.emergency_name||"")+(d.emergency_phone?" · "+d.emergency_phone:"")],
+       ["Minors",d.minors]].forEach(function(r){ if(r[1]) line(r[0]+": "+r[1], 11, false); });
+      y+=8; line("Acknowledgements accepted:", 11, true);
+      document.querySelectorAll(".ack span").forEach(function(s){ line("✓ "+s.textContent, 10, false); });
+      y+=10; line("Signature (drawn):", 11, true); y+=2;
+      if(sigDataURL){ try{ doc.addImage(sigDataURL,"PNG", M, y, 220, 66); y+=76; }catch(e){} }
+      line("Signed name: "+d.typed_name, 11, true);
+      line("Date: "+d.sign_date+"   ·   Timestamp: "+d.signed_at, 10, false);
+      doc.addPage(); y=M; line("FULL AGREEMENT AS PRESENTED AT SIGNING", 12, true); y+=6;
+      var ag=$("#agreementText");
+      ag.querySelectorAll("h3, p").forEach(function(el){
+        if(el.tagName==="H3"){ y+=6; line(el.textContent, 11, true, [46,74,58]); }
+        else line(el.textContent, 10, false); });
+      return doc;
+    }catch(e){ return null; }
+  }
+
+  var pending=null;
+  function showDone(d){
+    var pv = CFG.mode==="preview";
+    $("#formArea").hidden=true;
+    var el=$("#doneArea"); el.hidden=false;
+    el.querySelector("#doneName").textContent = d.guest_name || "";
+    if(pv){ el.querySelector("#doneMsg").textContent =
+      "This is a preview — nothing was stored, and file downloads are disabled here. On your live site, each signature is saved to your Netlify Forms dashboard and emailed to you, and the guest can download a PDF copy.";
+      el.querySelector("#downloadPdf").hidden = true; }
+    window.scrollTo(0,0);
+  }
+
+  $("#downloadPdf").addEventListener("click", function(){
+    if(!pending) return; var doc=makePDF(pending.d, pending.sig);
+    if(doc){ doc.save((CFG.name.replace(/\s+/g,"_"))+"_signed_agreement.pdf"); }
+    else { alert("Could not generate PDF on this device — your signature is still recorded."); }
+  });
+
+  $("#waiverForm").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var msg=validate(); $("#formErr").textContent = msg||"";
+    if(msg){ return; }
+    var d=collect(); var sig = hasInk? cv.toDataURL("image/png") : "";
+    d.signature_image = sig;
+    pending={d:d, sig:sig};
+    var btn=$("#submitBtn"); btn.disabled=true; btn.textContent="Submitting…";
+
+    if(CFG.mode==="preview"){ setTimeout(function(){ showDone(d); }, 350); return; }
+
+    // live: post to Netlify Forms
+    var fd=new FormData();
+    fd.append("form-name", CFG.form_name);
+    Object.keys(d).forEach(function(k){ fd.append(k, d[k]); });
+    fetch("/", {method:"POST", body:new URLSearchParams([].concat.apply([],
+        Array.from(fd.entries()).map(function(e){return [[e[0], e[1]]];}))) })
+      .then(function(r){ if(!r.ok) throw new Error(r.status); showDone(d); })
+      .catch(function(e){ btn.disabled=false; btn.textContent="Submit signed agreement";
+        $("#formErr").textContent="Sorry — submission failed. Please check your connection and try again, or email us."; });
+  });
+})();
+</script>
+
+
+</body>
+</html>
