@@ -9,6 +9,11 @@
   var WHATSAPP_NUMBER = "";          // digits only, country code first. "" hides the button.
   var FORM_ENDPOINT = "";            // POST URL (Formspree/HubSpot). "" → prefilled email fallback.
 
+  /* Photo gallery — how many tiles show before the "View all N photos" button.
+     Below this count the button never appears. Keep it a multiple of 3 so the
+     desktop grid ends on a full row. */
+  var GALLERY_PREVIEW = 6;
+
   /* Booking — Lodgify. Paste each property's booking widget/page from Lodgify.
      Until set, a "request to book" date form (→ email) is shown automatically.
        embedHtml : the full embed snippet Lodgify gives you (iframe/script)  — preferred
@@ -186,6 +191,111 @@
     play();
   }
   $$("[data-carousel]").forEach(initCarousel);
+
+  /* ---- Photo gallery: view-all toggle + lightbox ----
+     Reads whatever <button class="gallery__tile"> blocks are in the HTML, so adding
+     photos is a markup edit only. With JS off, every photo still shows. */
+  (function initGallery() {
+    var grid = $("[data-gallery]");
+    if (!grid) return;
+    var tiles = $$(".gallery__tile", grid);
+    if (!tiles.length) return;
+
+    var toggle = $("[data-gallery-toggle]");
+    if (toggle && tiles.length > GALLERY_PREVIEW) {
+      grid.classList.add("gallery--collapsed");
+      toggle.hidden = false;
+      toggle.textContent = "View all " + tiles.length + " photos";
+      toggle.addEventListener("click", function () {
+        var collapsed = grid.classList.toggle("gallery--collapsed");
+        toggle.textContent = collapsed ? "View all " + tiles.length + " photos" : "Show fewer photos";
+        if (collapsed) grid.scrollIntoView({ block: "start" });
+      });
+    }
+
+    var box, boxImg, boxCap, boxCount, opener, idx = 0, touchX = null;
+
+    function src(i) {
+      var img = $("img", tiles[(i + tiles.length) % tiles.length]);
+      return img ? img.getAttribute("src") : "";
+    }
+    function preload(i) { var s = src(i); if (s) { var p = new Image(); p.src = s; } }
+
+    function build() {
+      box = document.createElement("div");
+      box.className = "lbx";
+      box.hidden = true;
+      box.setAttribute("role", "dialog");
+      box.setAttribute("aria-modal", "true");
+      box.setAttribute("aria-label", "Lost Trail Lodge photos");
+      box.innerHTML =
+        '<div class="lbx__stage">' +
+          '<img class="lbx__img" alt="">' +
+          '<p class="lbx__cap"><span data-lbx-text></span><span class="lbx__count" data-lbx-count></span></p>' +
+        '</div>' +
+        '<button class="lbx__btn lbx__prev" type="button" aria-label="Previous photo">‹</button>' +
+        '<button class="lbx__btn lbx__next" type="button" aria-label="Next photo">›</button>' +
+        '<button class="lbx__btn lbx__close" type="button" aria-label="Close photos">×</button>';
+      document.body.appendChild(box);
+      boxImg = $(".lbx__img", box);
+      boxCap = $("[data-lbx-text]", box);
+      boxCount = $("[data-lbx-count]", box);
+      $(".lbx__prev", box).addEventListener("click", function () { go(idx - 1); });
+      $(".lbx__next", box).addEventListener("click", function () { go(idx + 1); });
+      $(".lbx__close", box).addEventListener("click", close);
+      box.addEventListener("click", function (e) { if (e.target === box) close(); });
+      box.addEventListener("touchstart", function (e) { touchX = e.changedTouches[0].clientX; }, { passive: true });
+      box.addEventListener("touchend", function (e) {
+        if (touchX === null) return;
+        var dx = e.changedTouches[0].clientX - touchX;
+        touchX = null;
+        if (Math.abs(dx) > 45) go(dx < 0 ? idx + 1 : idx - 1);
+      }, { passive: true });
+    }
+
+    function go(i) {
+      idx = (i + tiles.length) % tiles.length;
+      var img = $("img", tiles[idx]), cap = $(".gallery__cap", tiles[idx]);
+      boxImg.src = img ? img.getAttribute("src") : "";
+      boxImg.alt = (img && img.getAttribute("alt")) || "";
+      boxCap.textContent = cap ? cap.textContent : "";
+      boxCount.textContent = (idx + 1) + " / " + tiles.length;
+      preload(idx + 1);
+      preload(idx - 1);
+    }
+
+    function open(i, from) {
+      if (!box) build();
+      opener = from || null;
+      go(i);
+      box.hidden = false;
+      document.body.classList.add("lbx-open");
+      $(".lbx__close", box).focus();
+    }
+
+    function close() {
+      if (!box || box.hidden) return;
+      box.hidden = true;
+      document.body.classList.remove("lbx-open");
+      if (opener) opener.focus();
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (!box || box.hidden) return;
+      if (e.key === "Escape") { close(); return; }
+      if (e.key === "ArrowLeft") { go(idx - 1); return; }
+      if (e.key === "ArrowRight") { go(idx + 1); return; }
+      if (e.key !== "Tab") return;
+      var btns = $$(".lbx__btn", box);
+      var first = btns[0], last = btns[btns.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+
+    tiles.forEach(function (tile, i) {
+      tile.addEventListener("click", function () { open(i, tile); });
+    });
+  })();
 
   /* ---- Booking (Lodgify embed, or request-to-book fallback) ---- */
   function buildRequestToBook(name) {

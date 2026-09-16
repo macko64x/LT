@@ -86,10 +86,46 @@ img{max-width:100%;display:block}
 .img-rmp-hero{background-image:url('images/thelma.jpg'),linear-gradient(150deg,#3d6491,#294a6b 60%,#15212f)}
 .media-note{position:absolute;left:18px;bottom:16px;background:rgba(20,22,15,.55);color:#fff;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
 
-/* Gallery */
+/* Gallery — markup-driven: one <button class="gallery__tile"> per photo in the HTML.
+   Scales to as many photos as you drop in; JS adds the lightbox and the view-all toggle. */
 .gallery{background:var(--ink)}
 .gallery__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
-.gallery__tile{aspect-ratio:4/3;background-size:cover;background-position:center;background-repeat:no-repeat}
+.gallery__tile{position:relative;display:block;padding:0;margin:0;border:0;overflow:hidden;
+  aspect-ratio:4/3;cursor:zoom-in;font:inherit;color:inherit;
+  background:linear-gradient(135deg,#2e6b4f,#1b3a2c)}
+.gallery__img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gallery__tile:hover .gallery__img,.gallery__tile:focus-visible .gallery__img{transform:scale(1.04)}
+.gallery__tile:focus-visible{outline:3px solid var(--cream);outline-offset:-3px}
+.gallery__cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;text-align:left;
+  font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#f2efe6;
+  background:linear-gradient(180deg,rgba(20,22,15,0),rgba(20,22,15,.78));
+  opacity:0;transition:opacity .25s ease}
+.gallery__tile:hover .gallery__cap,.gallery__tile:focus-visible .gallery__cap{opacity:1}
+.gallery--collapsed .gallery__tile:nth-child(n+7){display:none}
+.gallery__more{margin:0;padding:22px 0 4px;text-align:center}
+.gallery__more .btn[hidden]{display:none}
+
+/* Lightbox */
+.lbx{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;
+  background:rgba(12,14,10,.94);padding:clamp(16px,4vw,48px)}
+.lbx[hidden]{display:none}
+.lbx__stage{position:relative;max-width:min(1400px,100%);max-height:100%;display:flex;
+  flex-direction:column;align-items:center;gap:14px}
+.lbx__img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:4px;background:#14160f}
+.lbx__cap{margin:0;color:#e8e4d8;font-size:.95rem;text-align:center}
+.lbx__count{display:block;margin-top:4px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#9c9884}
+.lbx__btn{position:absolute;border:0;border-radius:999px;background:rgba(246,242,233,.12);color:#f6f2e9;
+  width:46px;height:46px;font-size:1.3rem;line-height:1;cursor:pointer;transition:background .2s ease}
+.lbx__btn:hover{background:rgba(246,242,233,.26)}
+.lbx__btn:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+.lbx__close{top:clamp(10px,2vw,22px);right:clamp(10px,2vw,22px)}
+.lbx__prev{left:clamp(6px,2vw,26px);top:50%;transform:translateY(-50%)}
+.lbx__next{right:clamp(6px,2vw,26px);top:50%;transform:translateY(-50%)}
+body.lbx-open{overflow:hidden}
+/* Touch devices have no hover — keep captions legible there. */
+@media (hover:none){.gallery__cap{opacity:1}}
+@media (prefers-reduced-motion:reduce){.gallery__img,.gallery__cap{transition:none}
+  .gallery__tile:hover .gallery__img,.gallery__tile:focus-visible .gallery__img{transform:none}}
 .img-lt-1{background-image:url('images/lt-1.jpg'),linear-gradient(135deg,#2e6b4f,#1b3a2c)}
 .img-lt-2{background-image:url('images/lt-2.jpg'),linear-gradient(135deg,#3a5a47,#21302a)}
 .img-lt-3{background-image:url('images/lt-3.jpg'),linear-gradient(135deg,#4a5d3f,#283021)}

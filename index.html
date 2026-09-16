@@ -93,16 +93,38 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section class="gallery reveal" aria-label="Lost Trail Lodge photos">
-      <div class="gallery__grid">
-        <div class="gallery__tile img-lt-1" role="img" aria-label="The great room"></div>
-        <div class="gallery__tile img-lt-2" role="img" aria-label="A private bedroom"></div>
-        <div class="gallery__tile img-lt-3" role="img" aria-label="The deck and forest"></div>
-        <div class="gallery__tile img-lt-4" role="img" aria-label="The kitchen and table"></div>
-        <div class="gallery__tile img-lt-5" role="img" aria-label="Coldstream Creek"></div>
-        <div class="gallery__tile img-lt-6" role="img" aria-label="Autumn at the lodge"></div>
+    <!-- GALLERY
+         To add a photo: drop the file in /images and copy one <button> block below.
+         Order here is the order on the page; the lightbox and the "view all"
+         toggle pick everything up automatically. -->
+    <section class="gallery reveal" id="photos" aria-label="Lost Trail Lodge photos">
+      <div class="gallery__grid" data-gallery>
+        <button class="gallery__tile" type="button" aria-label="Open photo — the great room">
+          <img class="gallery__img" src="images/lt-1.jpg" alt="The great room at Lost Trail Lodge, with its river-rock fireplace and timber beams" loading="lazy" decoding="async" />
+          <span class="gallery__cap">The great room</span>
+        </button>
+        <button class="gallery__tile" type="button" aria-label="Open photo — a private bedroom">
+          <img class="gallery__img" src="images/lt-2.jpg" alt="A private bedroom at the lodge, made up with fresh linens" loading="lazy" decoding="async" />
+          <span class="gallery__cap">A private bedroom</span>
+        </button>
+        <button class="gallery__tile" type="button" aria-label="Open photo — the deck and the canyon">
+          <img class="gallery__img" src="images/lt-3.jpg" alt="The wrap-around deck looking out over Coldstream Canyon" loading="lazy" decoding="async" />
+          <span class="gallery__cap">The deck &amp; the canyon</span>
+        </button>
+        <button class="gallery__tile" type="button" aria-label="Open photo — the kitchen and the long table">
+          <img class="gallery__img" src="images/lt-4.jpg" alt="The kitchen and the long dinner table where the group eats" loading="lazy" decoding="async" />
+          <span class="gallery__cap">Kitchen &amp; the long table</span>
+        </button>
+        <button class="gallery__tile" type="button" aria-label="Open photo — Coldstream Creek">
+          <img class="gallery__img" src="images/lt-5.jpg" alt="Coldstream Creek running through the pines below the lodge" loading="lazy" decoding="async" />
+          <span class="gallery__cap">Coldstream Creek</span>
+        </button>
+        <button class="gallery__tile" type="button" aria-label="Open photo — autumn at the lodge">
+          <img class="gallery__img" src="images/lt-6.jpg" alt="The lodge's arched windows framed by golden aspen in autumn" loading="lazy" decoding="async" />
+          <span class="gallery__cap">Autumn at the lodge</span>
+        </button>
       </div>
+      <p class="gallery__more"><button class="btn btn--outline-light" type="button" data-gallery-toggle hidden></button></p>
     </section>
 
     <!-- ACCESS & SEASONS -->
