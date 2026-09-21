@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lost Trail Lodge — Activity Guide</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2ece1; --accent:#1f4d3a; --accent-2:#2e6b4f;
+  --ink:#2c3a30; --rule:#9db0a2; --tbd:#8a6d3b;
+  --serif:"Fraunces",ui-serif,Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);font-weight:300;color:var(--accent);background:var(--paper);
+  line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:300;letter-spacing:-.015em;line-height:1.05}
+.tbd{color:var(--tbd);border-bottom:1px dashed var(--tbd);font-style:italic}
+
+/* ============================ SHARED TYPE ============================ */
+.entry .rule{height:2px;background:var(--accent)}
+.entry h2{color:var(--accent)}
+.entry .meta{font-family:var(--serif);color:var(--accent-2)}
+.entry .desc{color:var(--ink)}
+.spec{display:grid;border-top:1px solid var(--rule)}
+.spec:last-child{border-bottom:1px solid var(--rule)}
+.spec dt{font-family:var(--serif);color:var(--accent)}
+.spec dd{color:var(--ink)}
+.spec dd .sub{display:block;color:var(--accent-2);margin-top:3px}
+.frame{border:1px solid var(--rule);background:rgba(255,255,255,.35);
+  display:flex;align-items:center;justify-content:center;text-align:center}
+.frame span{font-family:var(--serif);font-style:italic;color:var(--tbd);max-width:24ch;line-height:1.5}
+.divider{background:var(--accent);color:#f4f1e6}
+.divider h2{color:#f4f1e6}
+.divider .divider__sub{color:#cfdcd2}
+.cover{background:#12160f;position:relative;overflow:hidden}
+.cover h1{color:#f4f1e6}
+.cover__foot{font-family:var(--serif);color:#eae7da}
+
+/* ============================== SCREEN =============================== */
+@media screen{
+  .paper{max-width:1180px;margin:0 auto;padding:0 24px}
+  .spread{padding:56px 0;border-bottom:1px solid var(--rule)}
+  .spread--cover,.spread--divider{border-bottom:0}
+  .folio,.mark,.foot{display:none}
+
+  .cover{position:relative;min-height:min(80vh,760px);padding:40px 28px 132px;margin-bottom:0}
+  .cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82}
+  .cover::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,14,9,.72),rgba(10,14,9,.2) 45%,rgba(10,14,9,.8))}
+  .cover>*{position:relative;z-index:2}
+  .cover h1{font-size:clamp(2.6rem,11vw,7rem);line-height:.95}
+  .cover__foot{position:absolute;left:28px;right:96px;bottom:40px;
+    font-size:clamp(1rem,2.4vw,1.5rem);line-height:1.4}
+  .cover__mark{position:absolute;right:28px;bottom:40px;width:44px;height:44px;z-index:2}
+
+  .toc{padding:48px 0;border-bottom:1px solid var(--rule)}
+  .toc h2{font-size:1.5rem;margin-bottom:18px}
+  .toc ol{list-style:none;columns:2;column-gap:48px}
+  .toc li{border-bottom:1px solid var(--rule);padding:9px 0;font-size:.98rem}
+  .toc a{color:var(--ink);text-decoration:none}
+  .toc a:hover{color:var(--accent)}
+
+  .spread--divider{background:var(--accent);padding:64px 0;margin:0 -24px;
+    padding-left:24px;padding-right:24px}
+  .divider h2{font-size:clamp(2.2rem,7vw,3.6rem);margin-bottom:14px}
+  .divider__sub{font-size:1.05rem;max-width:54ch}
+  .divider img{margin-top:32px;width:100%;max-height:420px;object-fit:cover}
+
+  .lede{font-family:var(--serif);font-size:clamp(1.5rem,4vw,2.4rem);line-height:1.22;
+    color:var(--accent);margin-bottom:28px}
+  .body p+p{margin-top:14px}
+  .welcome{display:grid;grid-template-columns:1fr;gap:40px}
+  .facts h3,.cells h3{font-size:1.4rem;border-bottom:2px solid var(--accent);
+    padding-bottom:12px;margin-bottom:8px}
+
+  .pair{display:grid;gap:52px}
+  .entry{max-width:66ch}
+  .entry .rule{margin-bottom:20px}
+  .entry h2{font-size:clamp(1.8rem,5vw,2.6rem)}
+  .entry .meta{font-size:1.05rem;line-height:1.35;margin-top:10px}
+  .entry .desc{margin-top:18px;font-size:1.02rem}
+  .specs{margin-top:22px}
+  .spec{grid-template-columns:minmax(120px,190px) 1fr;gap:18px;padding:12px 0 13px}
+  .spec dt{font-size:1.02rem}
+  .spec dd{font-size:.96rem;line-height:1.5}
+  .spec dd .sub{font-size:.88rem}
+  figure img{width:100%;max-height:460px;object-fit:cover;margin-bottom:12px}
+  .frame{min-height:200px;padding:28px;margin-bottom:12px}
+  .frame span{font-size:1rem}
+
+  .cells{display:grid;grid-template-columns:1fr;gap:34px;margin-top:28px}
+  .cells .cell h4{font-size:1.35rem;border-top:2px solid var(--accent);padding-top:14px;margin-bottom:8px}
+  .cells .cell p{font-size:.98rem}
+  .pagetitle{font-size:clamp(1.9rem,5.5vw,3rem)}
+  .pagetitle small{display:block;font-family:var(--sans);font-size:.78rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-2);margin-bottom:10px;font-weight:400}
+  .cols{list-style:none;margin-top:8px}
+  .cols li{border-bottom:1px solid var(--rule);padding:9px 0;font-size:1rem;color:var(--ink)}
+  .closing{background:rgba(31,77,58,.055);border:1px solid var(--rule);padding:32px;margin-top:32px}
+  .closing h3{font-size:1.7rem;margin-bottom:14px}
+  .closing p+p{margin-top:12px}
+  .closing .em{font-family:var(--serif);font-size:1.15rem;color:var(--accent)}
+  .strip{width:100%;max-height:280px;object-fit:cover;margin-top:32px}
+  @media (min-width:860px){
+    .welcome{grid-template-columns:1fr 1fr;gap:64px}
+    .cells{grid-template-columns:repeat(3,1fr);gap:44px 52px}
+    .pair{grid-template-columns:1fr 1fr;gap:64px}
+    .pair--stack{grid-template-columns:1fr}
+    .divider{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .divider img{margin-top:0}
+    .appendix{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+    .closing{margin-top:0}
+  }
+}
+
+/* =============================== PRINT =============================== */
+@page{size:1920px 1080px;margin:0}
+@media print{
+  html{background:#fff}
+  body{background:var(--paper)}
+  .paper{max-width:none;margin:0;padding:0}
+  .toc-screen{display:none}
+  .spread{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--paper);
+    padding:0;border:0;margin:0;page-break-after:always;break-after:page;display:block}
+  .spread:last-child{page-break-after:auto;break-after:auto}
+
+  /* every positioned element carries --x/--y/--w/--h */
+  .spread [data-pos]{position:absolute;left:var(--x);top:var(--y);
+    width:var(--w);height:var(--h,auto);margin:0;max-width:none;max-height:none}
+  .spread [data-pos] img{width:100%;height:100%;object-fit:cover;margin:0;max-height:none}
+
+  .mark{display:block;position:absolute;top:44px;left:64px;width:46px;height:46px}
+  .folio{display:block;position:absolute;top:44px;right:30px;font-family:var(--serif);
+    font-size:22px;color:var(--accent-2);letter-spacing:.04em}
+  .foot{display:block;position:absolute;bottom:46px;right:64px;text-align:right;font-size:13px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);opacity:.75;font-weight:400}
+  .divider .folio,.divider .foot{color:#cfdcd2}
+
+  .entry .rule{margin-bottom:26px}
+  .entry h2{font-size:58px;line-height:1.02}
+  .entry h2.h-sm{font-size:48px}
+  .entry .meta{font-size:22px;line-height:1.3;margin-top:12px}
+  .entry .desc{font-size:17.5px;line-height:1.62;margin-top:30px}
+  .specs{margin-top:34px}
+  .spec{grid-template-columns:230px 1fr;gap:26px;padding:15px 0 17px}
+  .spec dt{font-size:20px}
+  .spec dd{font-size:16.5px;line-height:1.5}
+  .spec dd .sub{font-size:14.5px}
+  .notch-tl{clip-path:polygon(64px 0,100% 0,100% 100%,0 100%,0 64px)}
+  .notch-br{clip-path:polygon(0 0,100% 0,100% calc(100% - 64px),calc(100% - 64px) 100%,0 100%)}
+  .frame{min-height:0;padding:0;margin:0}
+  .frame span{font-size:19px}
+
+  .cover{width:1920px;height:1080px;padding:0;display:block}
+  .cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82}
+  .cover::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,14,9,.55),rgba(10,14,9,.12) 42%,rgba(10,14,9,.72))}
+  .cover h1{position:absolute;left:64px;top:52px;z-index:2;font-size:210px;line-height:.92;
+    letter-spacing:-.035em}
+  .cover__foot{position:absolute;left:64px;bottom:60px;z-index:2;font-size:27px;line-height:1.42}
+  .cover__mark{position:absolute;right:64px;bottom:56px;z-index:2;width:52px;height:52px;display:block}
+
+  .spread--divider{margin:0;padding:0;background:var(--accent)}
+  .divider{display:block}
+  .divider h2{position:absolute;left:1010px;top:400px;font-size:80px;line-height:1.06;margin:0}
+  .divider__sub{position:absolute;left:1010px;top:600px;width:640px;font-size:19px;line-height:1.65}
+  .divider img{position:absolute;left:64px;top:300px;width:790px;height:640px;object-fit:cover;
+    margin:0;max-height:none}
+  .hair{display:block;position:absolute;background:rgba(244,241,230,.5);height:1px}
+  .chev{display:block;position:absolute;left:1010px;top:60px;width:846px;height:300px}
+
+  .lede{position:absolute;left:64px;top:220px;width:820px;font-size:42px;line-height:1.22;margin:0}
+  .body{position:absolute;left:64px;top:520px;width:760px;font-size:17.5px;line-height:1.65;color:var(--ink)}
+  .body p+p{margin-top:16px}
+  .welcome{display:block}
+  .facts{position:absolute;right:64px;top:220px;width:820px}
+  .facts h3,.cells h3{font-size:26px;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid var(--accent)}
+
+  .pagetitle{position:absolute;left:64px;top:130px;font-size:64px;margin:0}
+  .pagetitle small{font-size:19px;margin-bottom:14px}
+  .cells{position:absolute;left:64px;right:64px;top:310px;display:grid;
+    grid-template-columns:repeat(3,1fr);gap:52px 60px;margin:0}
+  .cells .cell h4{font-size:29px;border-top:2px solid var(--accent);padding-top:16px;margin-bottom:12px}
+  .cells .cell p{font-size:16.5px;line-height:1.6}
+  .strip{position:absolute;left:64px;top:762px;width:1792px;height:254px;object-fit:cover;margin:0;max-height:none}
+
+  .appendix{display:block}
+  .cols{position:absolute;left:64px;top:300px;width:900px;column-count:2;column-gap:64px;margin:0}
+  .cols li{font-size:18px;line-height:2.05;border-bottom:1px solid var(--rule);break-inside:avoid;padding:0}
+  .closing{position:absolute;right:64px;top:300px;width:800px;padding:52px 54px;margin:0}
+  .closing h3{font-size:38px;margin-bottom:20px}
+  .closing p{font-size:17.5px;line-height:1.68}
+  .closing .em{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="paper">
+<section class="spread spread--cover" id="p1"><div class="cover"><img src="images/hero.jpg" alt=""><h1>Lost Trail</h1><div class="cover__foot">Coldstream Canyon, Truckee<br>Activity Guide</div><svg class="cover__mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#f4f1e6" stroke-width="1.6"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#f4f1e6" stroke-width="1.6"/></svg></div></section>
+<nav class="toc toc-screen"><h2>Contents</h2><ol><li><a href="#p2">Welcome</a></li><li><a href="#p3">Summer &amp; Fall</a></li><li><a href="#p4">Hike from the door</a></li><li><a href="#p5">Mountain biking &amp; road</a></li><li><a href="#p6">Rock climbing</a></li><li><a href="#p7">Swim, paddle &amp; fish</a></li><li><a href="#p8">Trail running &amp; fall</a></li><li><a href="#p9">Winter &amp; Spring</a></li><li><a href="#p10">Private cat skiing</a></li><li><a href="#p11">Touring &amp; resorts</a></li><li><a href="#p12">The ski-in arrival</a></li><li><a href="#p13">Nordic &amp; snowshoe</a></li><li><a href="#p14">At the lodge</a></li><li><a href="#p15">In town &mdash; Truckee</a></li><li><a href="#p16">Beyond the canyon</a></li><li><a href="#p17">Tahoe &amp; Donner Summit</a></li><li><a href="#p18">Reno &amp; hot springs</a></li><li><a href="#p19">Good to know</a></li><li><a href="#p20">Also worth your time</a></li></ol></nav><section class="spread" id="p2"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">02</div><div class="welcome"><div><p class="lede">You&rsquo;re off-grid on the creek in Coldstream Canyon &mdash; and fifteen minutes from a chairlift, a trailhead and a very good cortado.</p><div class="body"><p>This guide is how we&rsquo;d spend the days. It&rsquo;s a starting list, not gospel: tell us your group, your dates and your appetite for effort, and we&rsquo;ll shape it into an itinerary and book what needs booking.</p><p>Drive times assume summer road conditions. In winter the last stretch is an over-snow approach &mdash; we send exact directions, parking and conditions before you arrive.</p><p><span class="tbd">Dashed items</span> are placeholders for you to confirm &mdash; pricing, seasons and operator details change year to year.</p></div></div><div class="facts"><h3>At a glance</h3><dl class="specs"><div class="spec"><dt>Downtown Truckee</dt><dd>15&ndash;25 min<span class="sub">Food, gas, gear, groceries</span></dd></div><div class="spec"><dt>Donner Lake</dt><dd>~10 min<span class="sub">Swim, paddle, boat launch</span></dd></div><div class="spec"><dt>Donner Summit / Sugar Bowl</dt><dd>15&ndash;20 min<span class="sub">Skiing &amp; granite climbing</span></dd></div><div class="spec"><dt>North Lake Tahoe</dt><dd>25&ndash;35 min<span class="sub">Tahoe City / Kings Beach</span></dd></div><div class="spec"><dt>Reno&ndash;Tahoe (RNO)</dt><dd>~50 min<span class="sub">Closest major airport</span></dd></div><div class="spec"><dt>Sacramento (SMF)</dt><dd>~2 hr<span class="sub">Bay Area ~3.5 hr west on I-80</span></dd></div></dl></div></div><div class="foot">Lost Trail Lodge · Activity Guide</div></section>
+<section class="spread spread--divider" id="p3"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#f4f1e6" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#f4f1e6" stroke-width="1.8"/></svg><div class="folio">03</div><div class="divider"><div class="hair" style="left:64px;top:270px;width:790px"></div><div class="hair" style="left:64px;top:970px;width:790px"></div><div class="hair" style="left:1010px;top:20px;width:846px"></div><div class="hair" style="left:1010px;top:362px;width:846px"></div><svg class="chev" viewBox="0 0 846 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 300 L423 20 L846 300" fill="none" stroke="rgba(244,241,230,.5)" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg><img src="images/lt-5.jpg" alt=""><h2>Summer<br>&amp; Fall</h2><p class="divider__sub">May&ndash;October. Trailheads out the door, granite up the road, and cold water in every direction.</p></div></section>
+<section class="spread" id="p4"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">04</div><div class="pair pair--stack"><article class="entry" data-pos style="--x:1196px;--y:32px;--w:612px"><div class="rule"></div><h2>Hike from the door</h2><p class="meta">Coldstream Trail &rarr; Pacific Crest Trail<br>Trailhead at the lodge</p><p class="desc">The Coldstream Trail climbs up-canyon to meet the PCT near Tinker Knob and Mt. Judah &mdash; big-view ridgeline days that start at your doorstep and end back on the deck. Turn around whenever the group has had enough; the canyon walks well in both directions.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>June&ndash;October<span class="sub">Snow lingers high into early summer</span></dd></div><div class="spec"><dt>Effort</dt><dd>Half day to full day<span class="sub">Turn around anywhere</span></dd></div><div class="spec"><dt>Cost</dt><dd>Free</dd></div></dl></article><figure class="frame notch-br" data-pos style="--x:64px;--y:620px;--w:1060px;--h:396px"><span>Photo to source &mdash;<br>Coldstream Trail toward Tinker Knob</span></figure></div><div class="foot">Summer &amp; Fall</div></section>
+<section class="spread" id="p5"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">05</div><div class="pair"><div class="pair__a"><figure class="frame notch-tl" data-pos style="--x:1024px;--y:32px;--w:312px;--h:470px"><span>Photo to source &mdash;<br>singletrack above Donner</span></figure><article class="entry" data-pos style="--x:1356px;--y:32px;--w:452px"><div class="rule"></div><h2 class="h-sm">Mountain biking</h2><p class="meta">Donner Lake Rim Trail<br>10&ndash;25 minutes from the lodge</p><p class="desc">World-class Truckee&ndash;Tahoe singletrack: the Donner Lake Rim Trail, the Emigrant Trail and the flowy Tahoe National Forest network.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>June&ndash;October</dd></div><div class="spec"><dt>Rentals</dt><dd>Paco&rsquo;s Truckee Bike &amp; Ski</dd></div><div class="spec"><dt>Day rate</dt><dd><span class="tbd">bike rental day rate — confirm</span></dd></div></dl></article></div><div class="pair__b"><figure class="notch-tl" data-pos style="--x:64px;--y:520px;--w:420px;--h:500px"><img src="images/lt-3.jpg" alt=""></figure><article class="entry" data-pos style="--x:544px;--y:520px;--w:640px"><div class="rule"></div><h2>Gravel &amp; road</h2><p class="meta">Coldstream Canyon &middot; Donner Lake &middot; Donner Summit<br>From the door</p><p class="desc">Quiet forest roads run up the canyon from the lodge, and the classic road loop around Donner Lake climbs to the summit for whoever in the group wants the suffering.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>May&ndash;October<span class="sub">Road is snow-free earliest</span></dd></div><div class="spec"><dt>Surface</dt><dd>Dirt up-canyon, pavement below</dd></div><div class="spec"><dt>Cost</dt><dd>Free</dd></div></dl></article></div></div><div class="foot">Summer &amp; Fall</div></section>
+<section class="spread" id="p6"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">06</div><div class="pair pair--stack"><article class="entry" data-pos style="--x:1196px;--y:32px;--w:612px"><div class="rule"></div><h2>Rock climbing</h2><p class="meta">Donner Summit &amp; Big Chief<br>15&ndash;20 minutes up the old highway</p><p class="desc">Donner Summit is a Sierra granite classic &mdash; sport, trad and top-rope walls a short drive up the old highway, with Big Chief near Truckee for bolted granite. Guided days and instruction are easy to arrange for groups new to it.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>May&ndash;October</dd></div><div class="spec"><dt>Level</dt><dd>Introductory through expert</dd></div><div class="spec"><dt>Guide service</dt><dd><span class="tbd">preferred guide service and contact — confirm</span></dd></div><div class="spec"><dt>Cost &amp; duration</dt><dd><span class="tbd">half-day and full-day guided rates — confirm</span></dd></div></dl></article><figure class="frame notch-br" data-pos style="--x:64px;--y:620px;--w:1060px;--h:396px"><span>Photo to source &mdash;<br>climbing on Donner Summit granite</span></figure></div><div class="foot">Summer &amp; Fall</div></section>
+<section class="spread" id="p7"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">07</div><div class="pair"><div class="pair__a"><figure class="notch-tl" data-pos style="--x:1024px;--y:32px;--w:312px;--h:470px"><img src="images/lt-5.jpg" alt=""></figure><article class="entry" data-pos style="--x:1356px;--y:32px;--w:452px"><div class="rule"></div><h2 class="h-sm">Swim &amp; paddle</h2><p class="meta">Donner Lake &middot; Coldstream Creek<br>10 minutes, or out the back door</p><p class="desc">Donner Lake for a morning swim or a SUP session. The creek at the lodge does the job for a cold plunge after a hot day.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>June&ndash;September</dd></div><div class="spec"><dt>At the lodge</dt><dd><span class="tbd">paddleboards / gear kept on site? — confirm</span></dd></div><div class="spec"><dt>Cost</dt><dd>Free at the lake</dd></div></dl></article></div><div class="pair__b"><figure class="frame notch-tl" data-pos style="--x:64px;--y:520px;--w:420px;--h:500px"><span>Photo to source &mdash;<br>the Truckee River</span></figure><article class="entry" data-pos style="--x:544px;--y:520px;--w:640px"><div class="rule"></div><h2>Fly fishing</h2><p class="meta">Truckee River &middot; Little Truckee &middot; alpine lakes<br>10&ndash;30 minutes from the lodge</p><p class="desc">The Truckee is a blue-ribbon wild-trout fishery, with the Little Truckee, Donner and a scattering of alpine lakes to round out a week. We can line up a guide.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>Year-round<span class="sub">Best April&ndash;October</span></dd></div><div class="spec"><dt>Licence</dt><dd>California licence required</dd></div><div class="spec"><dt>Guided day</dt><dd><span class="tbd">guide service and day rate — confirm</span></dd></div></dl></article></div></div><div class="foot">Summer &amp; Fall</div></section>
+<section class="spread" id="p8"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">08</div><div class="pair"><div class="pair__a"><figure class="frame notch-tl" data-pos style="--x:1024px;--y:32px;--w:312px;--h:470px"><span>Photo to source &mdash;<br>running the Rim Trail</span></figure><article class="entry" data-pos style="--x:1356px;--y:32px;--w:452px"><div class="rule"></div><h2 class="h-sm">Trail running</h2><p class="meta">Coldstream Canyon &middot; Donner Lake Rim Trail<br>From the door</p><p class="desc">Creekside cruisers from the lodge, or the PCT high above the canyon when you want the whole view. The Rim Trail is the local benchmark.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>June&ndash;October</dd></div><div class="spec"><dt>From the door</dt><dd>Yes &mdash; up-canyon</dd></div><div class="spec"><dt>Cost</dt><dd>Free</dd></div></dl></article></div><div class="pair__b"><figure class="notch-tl" data-pos style="--x:64px;--y:520px;--w:420px;--h:500px"><img src="images/lt-6.jpg" alt=""></figure><article class="entry" data-pos style="--x:544px;--y:520px;--w:640px"><div class="rule"></div><h2>Fall color &amp; quiet</h2><p class="meta">Coldstream Canyon &middot; Donner Summit<br>Late September into October</p><p class="desc">The sleeper season: aspen turning gold up the canyon, empty trails, warm afternoons and cold, clear nights on the deck. Our favourite time to be here.</p><dl class="specs"><div class="spec"><dt>Peak color</dt><dd>Late September&ndash;mid October<span class="sub">Varies year to year</span></dd></div><div class="spec"><dt>Crowds</dt><dd>Almost none</dd></div><div class="spec"><dt>Bring</dt><dd>Layers &mdash; nights drop hard</dd></div></dl></article></div></div><div class="foot">Summer &amp; Fall</div></section>
+<section class="spread spread--divider" id="p9"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#f4f1e6" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#f4f1e6" stroke-width="1.8"/></svg><div class="folio">09</div><div class="divider"><div class="hair" style="left:64px;top:270px;width:790px"></div><div class="hair" style="left:64px;top:970px;width:790px"></div><div class="hair" style="left:1010px;top:20px;width:846px"></div><div class="hair" style="left:1010px;top:362px;width:846px"></div><svg class="chev" viewBox="0 0 846 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 300 L423 20 L846 300" fill="none" stroke="rgba(244,241,230,.5)" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg><img src="images/hero.jpg" alt=""><h2>Winter<br>&amp; Spring</h2><p class="divider__sub">November&ndash;April. Some of the deepest, most reliable snow in the Sierra &mdash; with cat skiing and touring straight from the canyon.</p></div></section>
+<section class="spread" id="p10"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">10</div><div class="pair pair--stack"><article class="entry" data-pos style="--x:1196px;--y:32px;--w:612px"><div class="rule"></div><h2>Private cat skiing</h2><p class="meta">Pacific Crest Snowcats<br>Arranged with your stay</p><p class="desc">Our partner Pacific Crest Snowcats runs guided snowcat skiing across roughly 3,000 acres of exclusive Sierra terrain &mdash; protected, north-facing, and empty. The signature Lost Trail day, and the one to book first.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd><span class="tbd">operating window — confirm</span></dd></div><div class="spec"><dt>Level</dt><dd>Advanced to expert skiers and riders</dd></div><div class="spec"><dt>Capacity</dt><dd><span class="tbd">group size, private-cat options — confirm</span></dd></div><div class="spec"><dt>Cost &amp; duration</dt><dd><span class="tbd">per-person rate and day length — confirm</span></dd></div><div class="spec"><dt>Booking</dt><dd>Through your host, well ahead<span class="sub">Ask when you enquire about dates</span></dd></div></dl></article><figure class="frame notch-br" data-pos style="--x:64px;--y:640px;--w:1060px;--h:376px"><span>Photo to source &mdash;<br>Pacific Crest Snowcats, exclusive terrain</span></figure></div><div class="foot">Winter &amp; Spring</div></section>
+<section class="spread" id="p11"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">11</div><div class="pair"><div class="pair__a"><figure class="frame notch-tl" data-pos style="--x:1024px;--y:32px;--w:312px;--h:470px"><span>Photo to source &mdash;<br>skinning up the canyon</span></figure><article class="entry" data-pos style="--x:1356px;--y:32px;--w:452px"><div class="rule"></div><h2 class="h-sm">Backcountry touring</h2><p class="meta">Coldstream Canyon &middot; Donner Summit<br>Skin from the lodge</p><p class="desc">Skin from the canyon toward Tinker Knob and the crest, or drive up for the classic Donner Summit lines.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>December&ndash;April</dd></div><div class="spec"><dt>Level</dt><dd>Avalanche training expected</dd></div><div class="spec"><dt>Forecast</dt><dd>Sierra Avalanche Center, daily</dd></div></dl></article></div><div class="pair__b"><figure class="notch-tl" data-pos style="--x:64px;--y:520px;--w:420px;--h:500px"><img src="images/lt-2.jpg" alt=""></figure><article class="entry" data-pos style="--x:544px;--y:520px;--w:640px"><div class="rule"></div><h2>Downhill resorts</h2><p class="meta">Sugar Bowl &middot; Palisades &middot; Northstar &middot; Boreal<br>15&ndash;30 minutes from the lodge</p><p class="desc">Sugar Bowl on Donner Summit is closest at 15&ndash;20 minutes; Palisades Tahoe, Northstar, Boreal and Donner Ski Ranch all sit inside half an hour.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>Late November&ndash;April<span class="sub">Snow depending</span></dd></div><div class="spec"><dt>Lift tickets</dt><dd>Book online ahead for the best rate</dd></div><div class="spec"><dt>Rentals</dt><dd>Truckee Sports Exchange</dd></div></dl></article></div></div><div class="foot">Winter &amp; Spring</div></section>
+<section class="spread" id="p12"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">12</div><div class="pair pair--stack"><article class="entry" data-pos style="--x:1196px;--y:32px;--w:612px"><div class="rule"></div><h2>The ski-in arrival</h2><p class="meta">Cold Stream Road, over snow<br>Part of what makes Lost Trail, Lost Trail</p><p class="desc">Once the snow comes, the last stretch of canyon road isn&rsquo;t plowed. You park at the winter lot and travel the final leg over snow &mdash; ski, sled or snowshoe, with your bags shuttled. It&rsquo;s a genuine backcountry arrival, and it&rsquo;s why the canyon stays as quiet as it does.</p><dl class="specs"><div class="spec"><dt>Distance from the winter lot</dt><dd><span class="tbd">over-snow distance and typical travel time — confirm</span></dd></div><div class="spec"><dt>Bag shuttle</dt><dd><span class="tbd">how gear and food get in &amp;mdash; snowmobile? sled? — confirm</span></dd></div><div class="spec"><dt>Parking</dt><dd><span class="tbd">winter parking location and capacity — confirm</span></dd></div><div class="spec"><dt>Bring</dt><dd>Warm layers for the approach<span class="sub">Boots you can travel in</span></dd></div></dl></article><figure class="frame notch-br" data-pos style="--x:64px;--y:640px;--w:1060px;--h:376px"><span>Photo to source &mdash;<br>the over-snow approach in winter</span></figure></div><div class="foot">Winter &amp; Spring</div></section>
+<section class="spread" id="p13"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">13</div><div class="pair"><div class="pair__a"><figure class="frame notch-tl" data-pos style="--x:1024px;--y:32px;--w:312px;--h:470px"><span>Photo to source &mdash;<br>groomed track at Royal Gorge</span></figure><article class="entry" data-pos style="--x:1356px;--y:32px;--w:452px"><div class="rule"></div><h2 class="h-sm">Nordic &amp; skate</h2><p class="meta">Royal Gorge &middot; Tahoe Donner XC<br>15&ndash;25 minutes from the lodge</p><p class="desc">Royal Gorge is the largest cross-country resort in North America, with Tahoe Donner XC a little closer. Groomed kilometres for every pace.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>December&ndash;March</dd></div><div class="spec"><dt>Trail pass</dt><dd><span class="tbd">day trail-pass rates — confirm</span></dd></div><div class="spec"><dt>Rentals</dt><dd>On site at both</dd></div></dl></article></div><div class="pair__b"><figure class="notch-tl" data-pos style="--x:64px;--y:520px;--w:420px;--h:500px"><img src="images/lt-4.jpg" alt=""></figure><article class="entry" data-pos style="--x:544px;--y:520px;--w:640px"><div class="rule"></div><h2>Snowshoe &amp; fat bike</h2><p class="meta">Coldstream Canyon<br>From the door</p><p class="desc">The mellow way to get out between bigger days &mdash; quiet canyon and forest routes straight from the lodge, no trailhead drive and no lift line.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>December&ndash;April</dd></div><div class="spec"><dt>At the lodge</dt><dd><span class="tbd">snowshoes kept on site, and what sizes? — confirm</span></dd></div><div class="spec"><dt>Cost</dt><dd>Free from the door</dd></div></dl></article></div></div><div class="foot">Winter &amp; Spring</div></section>
+<section class="spread" id="p14"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">14</div><h2 class="pagetitle"><small>Without leaving the canyon</small>At the lodge</h2><div class="cells"><div class="cell"><h4>Riverside sauna</h4><p>The sauna sits down by the creek &mdash; the correct end to a cold day, and the correct excuse for a plunge straight after.</p></div><div class="cell"><h4>A private chef</h4><p>Prefer to stay in? We&rsquo;ll line up a chef for a night or for the whole stay, and handle the provisioning with them.</p></div><div class="cell"><h4>The wood stove</h4><p>The great room runs on wood heat. There&rsquo;s a full walkthrough in your house guide &mdash; it&rsquo;s easier than it looks, and worth the ritual.</p></div><div class="cell"><h4>Starlink &amp; power</h4><p>Starlink wifi and off-grid solar with generator backup. Good enough to work from; download maps before you leave town anyway.</p></div><div class="cell"><h4>The kitchen</h4><p>A proper kitchen and a long table &mdash; the reason groups book this place. Provision in Truckee on the way in; there&rsquo;s nothing past town.</p></div><div class="cell"><h4>Gear &amp; drying</h4><p><span class="tbd">drying room / boot storage &amp;mdash; describe what&#x27;s there — confirm</span></p></div></div><img class="strip" src="images/lt-1.jpg" alt=""><div class="foot">At the lodge</div></section>
+<section class="spread" id="p15"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">15</div><h2 class="pagetitle"><small>15&ndash;25 minutes down the canyon</small>In town &mdash; Truckee</h2><div class="cells"><div class="cell"><h4>Provisions &amp; fuel</h4><p>Full grocery runs at Save Mart and Safeway; New Moon Natural Foods for organic and specialty. Fuel up in Truckee before you head up &mdash; there&rsquo;s no gas past town.</p></div><div class="cell"><h4>Gear &amp; rentals</h4><p>Tahoe Mountain Sports, Truckee Sports Exchange and Paco&rsquo;s Truckee Bike &amp; Ski for rentals, tuning, backcountry gear and local trail beta. Tell us ahead and we&rsquo;ll set the group up.</p></div><div class="cell"><h4>Coffee &amp; breakfast</h4><p>Coffeebar for the morning cortado; Squeeze In and Wild Cherries for a proper breakfast; Truckee Bagel Company to fuel a trail day.</p></div><div class="cell"><h4>Lunch &amp; casual</h4><p>Full Belly Deli for sandwiches, Burger Me for the group, and Best Pies when everyone&rsquo;s hungry and undecided.</p></div><div class="cell"><h4>Dinner out</h4><p>Moody&rsquo;s Bistro in the historic Truckee Hotel, Pianeta for Italian, Cottonwood above town for the view &mdash; and Trokay when it&rsquo;s a special night. Reservations help on weekends.</p></div><div class="cell"><h4>Beer &amp; a nightcap</h4><p>FiftyFifty Brewing and Alibi Ale Works for local pints; Bar of America on Commercial Row for a cocktail and live music.</p></div></div><img class="strip" src="images/lost-trail.jpg" alt=""><div class="foot">In town</div></section>
+<section class="spread spread--divider" id="p16"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#f4f1e6" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#f4f1e6" stroke-width="1.8"/></svg><div class="folio">16</div><div class="divider"><div class="hair" style="left:64px;top:270px;width:790px"></div><div class="hair" style="left:64px;top:970px;width:790px"></div><div class="hair" style="left:1010px;top:20px;width:846px"></div><div class="hair" style="left:1010px;top:362px;width:846px"></div><svg class="chev" viewBox="0 0 846 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 300 L423 20 L846 300" fill="none" stroke="rgba(244,241,230,.5)" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg><img src="images/lt-3.jpg" alt=""><h2>Beyond<br>the canyon</h2><p class="divider__sub">When you want to roam a little farther &mdash; the lake, the summit, the city, and a soak on the way home.</p></div></section>
+<section class="spread" id="p17"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">17</div><div class="pair"><div class="pair__a"><figure class="frame notch-tl" data-pos style="--x:1024px;--y:32px;--w:312px;--h:470px"><span>Photo to source &mdash;<br>the north shore</span></figure><article class="entry" data-pos style="--x:1356px;--y:32px;--w:452px"><div class="rule"></div><h2 class="h-sm">North Lake Tahoe</h2><p class="meta">Tahoe City &middot; Kings Beach<br>25&ndash;35 minutes</p><p class="desc">Beaches, boat rentals and a lakeside lunch, with the CA-89 river run back toward home at the end of the day.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>Best June&ndash;September</dd></div><div class="spec"><dt>Boat &amp; SUP rental</dt><dd><span class="tbd">marina and rental rates — confirm</span></dd></div><div class="spec"><dt>Parking</dt><dd>Go early on summer weekends</dd></div></dl></article></div><div class="pair__b"><figure class="frame notch-tl" data-pos style="--x:64px;--y:520px;--w:420px;--h:500px"><span>Photo to source &mdash;<br>the summit snowsheds</span></figure><article class="entry" data-pos style="--x:544px;--y:520px;--w:640px"><div class="rule"></div><h2>Donner Summit &amp; history</h2><p class="meta">Donner Memorial State Park &middot; old Highway 40<br>15&ndash;20 minutes</p><p class="desc">The state park, the old Highway 40 overlook, and the historic railroad snowsheds and China Wall &mdash; a stunning, story-rich half-day right above the canyon.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>Year-round<span class="sub">Snowsheds are a summer walk</span></dd></div><div class="spec"><dt>Park entry</dt><dd><span class="tbd">Donner Memorial State Park day-use fee — confirm</span></dd></div><div class="spec"><dt>Effort</dt><dd>Easy walking</dd></div></dl></article></div></div><div class="foot">Beyond the canyon</div></section>
+<section class="spread" id="p18"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">18</div><div class="pair"><div class="pair__a"><figure class="frame notch-tl" data-pos style="--x:1024px;--y:32px;--w:312px;--h:470px"><span>Photo to source &mdash;<br>the Truckee River through Reno</span></figure><article class="entry" data-pos style="--x:1356px;--y:32px;--w:452px"><div class="rule"></div><h2 class="h-sm">Reno &amp; the Riverwalk</h2><p class="meta">East on I-80<br>~50 minutes</p><p class="desc">The closest airport, plus a walkable riverfront, museums and a night out if the group wants city lights.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>Year-round</dd></div><div class="spec"><dt>Drive</dt><dd>~50 min<span class="sub">I-80 over the state line</span></dd></div><div class="spec"><dt>Worth it for</dt><dd>Dinner, museums, the airport run</dd></div></dl></article></div><div class="pair__b"><figure class="frame notch-tl" data-pos style="--x:64px;--y:520px;--w:420px;--h:500px"><span>Photo to source &mdash;<br>a Sierra soak</span></figure><article class="entry" data-pos style="--x:544px;--y:520px;--w:640px"><div class="rule"></div><h2>Hot springs &amp; soaks</h2><p class="meta">Greater Tahoe&ndash;Sierra<br>Varies &mdash; ask us</p><p class="desc">End a big day with a soak. Options range from developed pools to a short walk in; some are seasonal, and access changes. Ask us for what&rsquo;s currently open and worth the drive.</p><dl class="specs"><div class="spec"><dt>Season</dt><dd>Varies by site</dd></div><div class="spec"><dt>Which ones</dt><dd><span class="tbd">current recommended springs and access notes — confirm</span></dd></div><div class="spec"><dt>Drive</dt><dd><span class="tbd">drive time to the ones you recommend — confirm</span></dd></div></dl></article></div></div><div class="foot">Beyond the canyon</div></section>
+<section class="spread" id="p19"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">19</div><h2 class="pagetitle"><small>Before you come</small>Good to know</h2><div class="cells"><div class="cell"><h4>Elevation &amp; weather</h4><p>You&rsquo;re around 6,000 feet &mdash; drink extra water the first day and expect big day-to-night swings, even in summer. Pack layers and a rain shell any month.</p></div><div class="cell"><h4>Getting in</h4><p>The canyon road is unpaved: AWD or 4&times;4 recommended in summer, and required plus over-snow travel in winter. Fuel and provision in Truckee.</p></div><div class="cell"><h4>Connectivity &amp; power</h4><p>Cell service is spotty in the canyon, but the lodge has Starlink wifi and off-grid solar with generator backup. Download maps offline before you leave town.</p></div><div class="cell"><h4>Bears &amp; leave-no-trace</h4><p>This is black-bear country: keep food inside and secured, and pack out what you pack in. Leave the canyon better than you found it &mdash; it&rsquo;s why it&rsquo;s still this good.</p></div><div class="cell"><h4>In an emergency</h4><p>Call 911. The nearest hospital is Tahoe Forest Hospital in Truckee. Your booking packet has the exact address, access details and an on-site emergency contact.</p></div><div class="cell"><h4>Conditions</h4><p>Sierra Avalanche Center for winter snow; Caltrans QuickMap or 511 for roads. Check both the night before and the morning of.</p></div></div><div class="foot">Before you come</div></section>
+<section class="spread" id="p20"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M4 50 L21 22 L32 39 L40 27 L60 50 Z" fill="none" stroke="#2e6b4f" stroke-width="1.8"/><circle cx="48" cy="15" r="4.5" fill="none" stroke="#2e6b4f" stroke-width="1.8"/></svg><div class="folio">20</div><h2 class="pagetitle"><small>Worth the drive</small>Also worth your time</h2><div class="appendix"><ul class="cols"><li>Ice skating and sleigh rides in Truckee</li><li>Snowmobile tours</li><li>The Truckee Thursday street market, summer</li><li>Truckee River rafting from Tahoe City</li><li>Golf &mdash; Old Greenwood, Coyote Moon, Gray&rsquo;s Crossing</li><li>Sardine Lake and the Lakes Basin, north</li><li>Tahoe City Art Haus &amp; Cinema</li><li>Farmers markets, Truckee and Tahoe City</li><li>Via ferrata and ropes courses</li><li>A scenic flight out of Truckee Tahoe Airport</li></ul><div class="closing"><h3>Ask your host</h3><p>Everything here can be arranged for you &mdash; guides, rentals, lift tickets, a private chef at the lodge, or a full itinerary built around your dates and your group.</p><p>Tell us what you&rsquo;re hoping for and we&rsquo;ll come back personally with options and a plan.</p><p class="em">losttraillodgetruckee@gmail.com<br><span class="tbd">host phone number for the guide — confirm</span></p></div></div><div class="foot">Lost Trail Lodge · Coldstream Canyon, Truckee, CA</div></section>
+</div>
+</body>
+</html>
